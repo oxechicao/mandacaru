@@ -18,7 +18,7 @@ config.line_height = 1.2
 config.font = wezterm.font("MartianMono Nerd Font Mono", { stretch = "Condensed", weight = "Medium" })
 
 -- color
-local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").moon
+local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 config.colors = theme.colors()
 
 -- Finally, return the configuration to wezterm:
