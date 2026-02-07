@@ -5,3 +5,7 @@ function macos_requirements() {
 }
 
 echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >>$HOME/.zshrc
+
+DIR = $(pwd)
+
+ln -s $DIR/wezterm.lua $HOME/.wezterm.lua
