@@ -10,7 +10,7 @@ config.enable_tab_bar = false
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 
 -- Editor
-config.font_size = 14
+config.font_size = 16
 config.line_height = 1.2
 config.font = wezterm.font("MartianMono Nerd Font Mono", { stretch = "Condensed", weight = "Medium" })
 
