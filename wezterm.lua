@@ -14,8 +14,10 @@ config.macos_window_background_blur = 100
 -- Editor
 config.font_size = 16
 config.line_height = 1.2
-config.font = wezterm.font("MartianMono Nerd Font Mono", { stretch = "Condensed", weight = "Regular" })
-
+config.font = wezterm.font_with_fallback({
+  { family = "OpenDyslexicM Nerd Font Mono" },
+  { family = "MartianMono Nerd Font Mono", stretch = "Condensed", weight = "Regular" },
+})
 -- color
 local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").moon
 config.colors = theme.colors()
