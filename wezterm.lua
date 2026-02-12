@@ -12,7 +12,7 @@ config.macos_window_background_blur = 100
 
 -- Editor
 config.font_size = 16
-config.line_height = 1.3
+config.line_height = 1.4
 config.font = wezterm.font_with_fallback({
   { family = "MartianMono Nerd Font Mono", weight = "Regular" },
 })
