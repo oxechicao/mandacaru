@@ -7,12 +7,12 @@ config.initial_rows = 28
 config.max_fps = 100
 config.prefer_egl = true
 config.enable_tab_bar = false
-config.window_background_opacity = 0.85
+config.window_background_opacity = 1
 config.macos_window_background_blur = 100
 
 -- Editor
-config.font_size = 16
-config.line_height = 1.4
+config.font_size = 14
+config.line_height = 1.6
 config.font = wezterm.font_with_fallback({
   { family = "MartianMono Nerd Font Mono", weight = "Regular" },
 })
