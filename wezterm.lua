@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 
 -- Window
 config.initial_cols = 120
-config.initial_rows = 28
+config.initial_rows = 50
 config.max_fps = 100
 config.prefer_egl = true
 config.enable_tab_bar = false
@@ -11,10 +11,11 @@ config.window_background_opacity = 1
 config.macos_window_background_blur = 100
 
 -- Editor
-config.font_size = 14
+config.font_size = 13
 config.line_height = 1.4
 config.font = wezterm.font_with_fallback({
-  { family = "MartianMono Nerd Font Mono", weight = "Regular" },
+  { family = "MartianMono Nerd Font Mono", weight = "Regular", stretch = "Condensed" },
+  { family = "OpenDyslexicM Nerd Font Mono", weight = "Regular" },
 })
 
 -- color
