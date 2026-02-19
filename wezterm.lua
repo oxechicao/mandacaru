@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
+local act = wezterm.action
 
 -- Window
 config.initial_cols = 120
@@ -22,5 +23,12 @@ config.font = wezterm.font_with_fallback({
 local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 config.colors = theme.colors()
 
--- Finally, return the configuration to wezterm:
+-- actions
+config.keys = {
+  { key = "LeftArrow", mods = "OPT", action = act.SendString("\x1b[1;5D") },
+  { key = "RightArrow", mods = "OPT", action = act.SendString("\x1b[1;5C") },
+  { key = "LeftArrow", mods = "CMD", action = act.SendString("\x01") },
+  { key = "RightArrow", mods = "CMD", action = act.SendString("\x05") },
+}
+
 return config
