@@ -12,11 +12,11 @@ config.window_background_opacity = 1
 config.macos_window_background_blur = 100
 
 -- Editor
-config.font_size = 13
-config.line_height = 1.4
+config.font_size = 15
+config.line_height = 1
 config.font = wezterm.font_with_fallback({
-  { family = "MartianMono Nerd Font Mono", weight = "Regular", stretch = "Condensed" },
   { family = "OpenDyslexicM Nerd Font Mono", weight = "Regular" },
+  { family = "MartianMono Nerd Font Mono", weight = "Regular", stretch = "Condensed" },
 })
 
 -- color
