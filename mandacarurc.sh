@@ -26,32 +26,40 @@ function f5() {
 # Resource measure script
 ############################
 
-function cpu_app() {
-  app=$1
-  ps -eo pcpu,command | grep -i $app | awk '{p=$1 ; sum +=p} END {print sum "%"}'
+ps_sum_by_app() {
+  local app="$1"
+  ps aux | awk -v app="$app" '
+      BEGIN { IGNORECASE=1 }
+      NR > 1 && index(tolower($0), tolower(app)) > 0 {
+        cpu += $3
+        mem += $4
+        rss += $6
+        n++
+      }
+      END {
+        printf "%s|%d|%.2f|%.2f|%d|%.1f\n", app, n, cpu, mem, rss, rss/1024
+      }
+    '
 }
 
-function mem_app() {
-  app=$1
-  ps -eo rss,command | grep -i $app | awk '{m=$1 ; sum +=m} END {print sum/1024 " MB"}'
-}
+# Call ps_sum_by_app for one or more apps and print a table
+ps_sum_table() {
+  if [ "$#" -eq 0 ]; then
+    echo "Usage: ps_sum_table <app1> [app2 ...]"
+    return 1
+  fi
 
-function resource_app() {
-  app=$1
-  cpu=$(cpu_app $app)
-  mem=$(mem_app $app)
-  echo "$app|$cpu|$mem"
-}
-
-function generate_report() {
-  echo "App|CPU|Mem"
-  for app in "${apps[@]}"; do
-    resource_app "$app"
-  done
+  {
+    echo "APP|PROCS|CPU_%|MEM_%|RSS_KB|RSS_MB"
+    local app
+    for app in "$@"; do
+      ps_sum_by_app "$app"
+    done
+  } | column -s '|' -t
 }
 
 function consume_apps() {
-  generate_report | column -s '|' -t
+  ps_sum_table "${apps[@]}"
 }
 
 function wca() {
