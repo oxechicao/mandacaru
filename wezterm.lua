@@ -1,14 +1,24 @@
+--=================--
 -- Initializations
+--=================--
 local wezterm = require("wezterm")
 local act = wezterm.action
 local config = wezterm.config_builder()
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
-wezterm.plugin.require("https://github.com/sei40kr/wez-tmux")
-
+local keys = {}
+--===================--
+-- Helpers fucntions
+--===================--
+function concat_table(destine, value)
+  table.move(value, 1, #value, #destine + 1, destine)
+end
+--=========--
 -- CONFIGs
---- General settings
--- config.plugin_dir = wezterm.home_dir .. "/.config/wezterm/plugins"
---- Window
+--=========--
+--------------------------
+---- General settings
+--------------------------
+-------- Window --------
 config.initial_cols = 120
 config.initial_rows = 50
 config.max_fps = 120
@@ -16,8 +26,16 @@ config.prefer_egl = true
 config.enable_tab_bar = false
 config.window_background_opacity = 1
 config.macos_window_background_blur = 100
---- Coding
----- Font
+-------- Coding --------
+----------  Word moves
+concat_table(keys, {
+  --- Pane resize
+  { key = "LeftArrow", mods = "OPT", action = act.SendString("\x1b[1;5D") },
+  { key = "RightArrow", mods = "OPT", action = act.SendString("\x1b[1;5C") },
+  { key = "LeftArrow", mods = "CMD", action = act.SendString("\x01") },
+  { key = "RightArrow", mods = "CMD", action = act.SendString("\x05") },
+})
+-------- Font --------
 config.font_size = 14
 config.line_height = 1.4
 config.font = wezterm.font_with_fallback({
@@ -26,19 +44,26 @@ config.font = wezterm.font_with_fallback({
   { family = "OpenDyslexicM Nerd Font Mono", weight = "Regular" },
   { family = "MartianMono Nerd Font Mono", weight = "Regular", stretch = "Condensed" },
 })
---- color
+-------- Colors --------
 local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 config.colors = theme.colors()
-
--- KEYS actions / Keybindings
-config.leader = { key = "a", mods = "CTRL" }
-config.keys = {
-  --- Pane resize
-  { key = "LeftArrow", mods = "OPT", action = act.SendString("\x1b[1;5D") },
-  { key = "RightArrow", mods = "OPT", action = act.SendString("\x1b[1;5C") },
-  { key = "LeftArrow", mods = "CMD", action = act.SendString("\x01") },
-  { key = "RightArrow", mods = "CMD", action = act.SendString("\x05") },
-  --- RESSURECT ACTIONS
+--================--
+-- Plugins config
+--================--
+----------------
+---- RESURRECT
+------ Resurrect your terminal environment!⚰️
+------ A plugin to save the state of your windows, tabs and panes.
+------ Inspired by tmux-resurrect and tmux-continuum.
+----------------
+resurrect.state_manager.periodic_save({
+  interval_seconds = 10,
+  save_workspaces = false,
+  save_windows = false,
+  save_tabs = true,
+})
+-------- Actions --------
+concat_table(keys, {
   {
     key = "r",
     mods = "LEADER",
@@ -109,21 +134,8 @@ config.keys = {
       })
     end),
   },
-}
-
--- Plugins config
---- RESURRECT
---- Resurrect your terminal environment!⚰️ A plugin to save the state of your windows, tabs and panes.
---- Inspired by tmux-resurrect and tmux-continuum.
-resurrect.state_manager.periodic_save({
-  interval_seconds = 10,
-  save_workspaces = false,
-  save_windows = false,
-  save_tabs = true,
 })
-
--- Event listeners
---- When workspace is switched, restore the state of the workspace
+-------- Events Listen --------
 wezterm.on("smart_workspace_switcher.workspace_switcher.created", function(window, path, label)
   local workspace_state = resurrect.workspace_state
   workspace_state.restore_workspace(resurrect.state_manager.load_state(label, "workspace"), {
@@ -139,7 +151,10 @@ wezterm.on("smart_workspace_switcher.workspace_switcher.selected", function(wind
   resurrect.state_manager.save_state(workspace_state.get_workspace_state())
   resurrect.state_manager.write_current_state(label, "tabs")
 end)
-
 wezterm.on("gui-startup", resurrect.state_manager.resurrect_on_gui_startup)
-
+--============================--
+-- KEYS actions / Keybindings
+--============================--
+config.leader = { key = "a", mods = "CTRL" }
+config.keys = keys
 return config
