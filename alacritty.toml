@@ -6,8 +6,10 @@ import = ["~/.config/alacritty/rose-pine.toml"]
 dimensions = { columns = 150, lines = 90 }
 decorations_theme_variant = "Dark"
 option_as_alt = "Both"
+padding = { x = 8, y = 8 }
 
 [font]
 normal = { family = "Monoid Nerd Font Mono", style = "Regular" }
 size = 14
 offset = { y = 4 }
+glyph_offset = { y = 2 }
