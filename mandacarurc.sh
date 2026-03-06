@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apps=(tmux chrome brave wezterm nvim intellij idea)
+apps=(tmux chrome brave wezterm alacritty nvim intellij idea)
 
 ############################
 # Reload settings

@@ -11,10 +11,10 @@ function install_deps() {
   echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >>$HOME/.zshrc
 }
 
-function setup_wez() {
-  echo "Setup Wezterm conf"
+function setup_alacritty() {
+  echo "Setup Alacritty conf"
   mv $HOME/.wezterm.lua{,.mandacaru_bkp}
-  ln -s $(pwd)/wezterm.lua $HOME/.wezterm.lua
+  ln -s $(pwd)/alacritty.toml $HOME/.alacritty.toml
 }
 
 function setup_tmux() {
@@ -59,7 +59,7 @@ case $option in
   install_deps
   ;;
 "2")
-  setup_wez
+  setup_alacritty
   ;;
 "3")
   setup_tmux
@@ -76,7 +76,7 @@ case $option in
 *)
   echo "0 - Install everything"
   echo "1 - Install dependencies"
-  echo "2 - Setup Wezterm"
+  echo "2 - Setup Alacritty"
   echo "3 - Setup Tmux"
   echo "4 - Setup Git"
   echo "5 - Setup LazyVim"

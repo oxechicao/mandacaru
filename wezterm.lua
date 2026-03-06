@@ -36,7 +36,7 @@ concat_table(keys, {
   { key = "RightArrow", mods = "CMD", action = act.SendString("\x05") },
 })
 -------- Font --------
-config.font_size = 14
+config.font_size = 12
 config.line_height = 1.4
 config.font = wezterm.font_with_fallback({
   { family = "Monoid Nerd Font Mono", weight = "Regular" },
