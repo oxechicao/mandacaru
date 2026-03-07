@@ -7,8 +7,8 @@ function macos_requirements() {
 function install_deps() {
   echo "Installing dependencies"
   macos_requirements
-  echo "Adding zsh-syntax-highlighting to .zshrc"
-  echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >>$HOME/.zshrc
+  echo "Adding mandacarurc.sh to .zshrc"
+  echo "source $(pwd)/mandacarurc.sh" >>$HOME/.zshrc
 }
 
 function setup_wez() {
@@ -23,6 +23,12 @@ function setup_tmux() {
   ln -s $(pwd)/temux.conf $HOME/.tmux.conf
 }
 
+function setup_starship() {
+  echo "eval \"$(starship init zsh)\"" >>$HOME/.zshrc
+  mv $HOME/.config/starship.toml{,.mandacaru_bkp}
+  ln -s $(pwd)/starship.toml $HOME/.config/starship.toml
+}
+
 function setup_git() {
   echo "Setup git config global"
   git config --global core.editor "nvim"
@@ -32,7 +38,8 @@ function setup_lazyvim() {
   echo "Initializin submodules"
   git submodule init
   git submodule update
-  echo "Setup nvim with lazyvim" mv $HOME/.config/nvim{,.mandacaru_bkp}
+  echo "Setup nvim with lazyvim"
+  mv $HOME/.config/nvim{,.mandacaru_bkp}
   ln -s $(pwd)/lazyvim $HOME/.config/nvim
 }
 
@@ -73,6 +80,9 @@ case $option in
 "6")
   setup_mandacarurc
   ;;
+"7")
+  setup_starship
+  ;;
 *)
   echo "0 - Install everything"
   echo "1 - Install dependencies"
@@ -81,5 +91,6 @@ case $option in
   echo "4 - Setup Git"
   echo "5 - Setup LazyVim"
   echo "6 - Setup Mandacarurc"
+  echo "7 - setup Starship"
   ;;
 esac

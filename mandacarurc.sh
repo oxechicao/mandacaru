@@ -1,5 +1,12 @@
 #!/bin/bash
 
+############################
+# Settings
+############################
+
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(starship init zsh)"
+
 apps=(chrome brave wezterm nvim intellij idea)
 
 ############################
