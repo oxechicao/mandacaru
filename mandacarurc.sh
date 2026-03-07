@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apps=(tmux chrome brave wezterm alacritty nvim intellij idea)
+apps=(chrome brave wezterm nvim intellij idea)
 
 ############################
 # Reload settings
@@ -65,7 +65,6 @@ function consume_apps() {
 function wca() {
   time=$1
   while true; do
-    clear
     consume_apps
     sleep $1
   done
