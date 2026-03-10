@@ -14,12 +14,12 @@ local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.
 -------- Window --------
 config.initial_cols = 120
 config.initial_rows = 50
-config.max_fps = 120
-config.prefer_egl = true
-config.enable_tab_bar = false
-config.window_background_opacity = 1
-config.macos_window_background_blur = 100
+config.enable_tab_bar = true
+config.tab_bar_at_bottom = true
+config.window_background_opacity = 0.90
+config.macos_window_background_blur = 90
 -------- Font --------
+config.freetype_load_flags = "NO_HINTING"
 config.font_size = 12
 config.line_height = 1.4
 config.font = wezterm.font_with_fallback({
@@ -29,8 +29,9 @@ config.font = wezterm.font_with_fallback({
   { family = "MartianMono Nerd Font Mono", weight = "Regular", stretch = "Condensed" },
 })
 -------- Colors --------
-local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").moon
+local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").main
 config.colors = theme.colors()
+config.use_fancy_tab_bar = false
 --================--
 -- Plugins config
 --================--

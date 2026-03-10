@@ -37,11 +37,11 @@ iris = '#c4a7e7'
 [directory]
 format = "[](fg:overlay)[ $path ]($style)[](fg:overlay) "
 style = "bg:overlay fg:pine"
-truncation_length = 3
+truncation_length = 1
 truncation_symbol = "…/"
 
 [directory.substitutions]
-Documents = "󰈙"
+Documents = "󰈙 "
 Downloads = " "
 Music = " "
 Pictures = " "
@@ -75,7 +75,7 @@ disabled = false
 format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
 style = "bg:overlay fg:rose"
 time_format = "%I:%M%P"
-use_12hr = true
+use_12hr = false
 
 [username]
 disabled = false
