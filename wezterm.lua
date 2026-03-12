@@ -27,7 +27,7 @@ config.font = wezterm.font_with_fallback({
   { family = "MartianMono Nerd Font Mono", weight = "Regular", stretch = "Condensed" },
 })
 -------- Colors --------
-local theme = wezterm.plugin.require("https://github.com/neapsix/wezterm").moon
+local theme = wezterm.plugin.require("https://github.com/oxechicao/turnstyle-wezterm").main
 config.colors = theme.colors()
 config.use_fancy_tab_bar = false
 --================--
