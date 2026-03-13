@@ -6,11 +6,23 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
 --=========--
+-- Functions
+--=========--
+local function tab_title(tab_info)
+  local title = tab_info.tab_title
+  if title and #title > 0 then
+    return title
+  end
+
+  return tab_info.active_pane.title
+end
+--=========--
 -- CONFIGs
 --=========--
 --------------------------
 ---- General settings
 --------------------------
+config.max_fps = 120
 -------- Window --------
 config.initial_cols = 120
 config.initial_rows = 50
@@ -18,12 +30,12 @@ config.enable_tab_bar = true
 config.tab_bar_at_bottom = true
 -------- Font --------
 config.freetype_load_flags = "NO_HINTING"
-config.font_size = 14
-config.line_height = 1.4
+config.font_size = 15
+config.line_height = 1
 config.font = wezterm.font_with_fallback({
+  { family = "OpenDyslexicM Nerd Font Mono", weight = "Regular" },
   { family = "Monoid Nerd Font Mono", weight = "Regular" },
   { family = "Mononoki Nerd Font Mono", weight = "Regular" },
-  { family = "OpenDyslexicM Nerd Font Mono", weight = "Regular" },
   { family = "MartianMono Nerd Font Mono", weight = "Regular", stretch = "Condensed" },
 })
 -------- Colors --------
@@ -147,5 +159,36 @@ config.keys = {
       })
     end),
   },
+  ---- TMUX rebindings ----
+  {
+    -- Rename tab
+    key = "$",
+    mods = "LEADER",
+    action = wezterm.action.PromptInputLine({
+      description = "Rename tab:",
+      action = wezterm.action_callback(function(window, _, line)
+        if line then
+          window:active_tab():set_title(line)
+        end
+      end),
+    }),
+  },
 }
+--========--
+-- Events --
+--========--
+wezterm.on("format-tab-title", function(tab)
+  local title = tab_title(tab)
+  if tab.is_active then
+    return {
+      { Text = " " .. title .. " " },
+    }
+  end
+  if tab.is_last_active then
+    return {
+      { Text = " " .. title .. "*" },
+    }
+  end
+  return title
+end)
 return config
