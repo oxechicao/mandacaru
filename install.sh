@@ -24,7 +24,6 @@ function setup_tmux() {
 }
 
 function setup_starship() {
-  echo "eval \"$(starship init zsh)\"" >>$HOME/.zshrc
   mv $HOME/.config/starship.toml{,.mandacaru_bkp}
   ln -s $(pwd)/starship.toml $HOME/.config/starship.toml
 }
