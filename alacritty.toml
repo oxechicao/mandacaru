@@ -1,0 +1,8 @@
+[general]
+import = ["mandacaru.toml"]
+live_config_reload = true
+
+[font]
+normal = { family = "Mononoki Nerd Font Mono" }
+size = 16
+offset = { x = 0, y = 10 }

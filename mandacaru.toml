@@ -1,0 +1,75 @@
+# Colors section of "Alacritty - TOML configuration file format"
+# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#colors
+
+[colors.primary]
+foreground = "#f8f8eb"
+background = "#302834"
+dim_foreground = "#d2a0c6"
+bright_foreground = "#f8f8eb"
+
+[colors.cursor]
+text = "#f8f8eb"
+cursor = "#a25039"
+
+[colors.vi_mode_cursor]
+text = "#f8f8eb"
+cursor = "#a25039"
+
+[colors.search.matches]
+foreground = "#d2a0c6"
+background = "#37283e"
+
+[colors.search.focused_match]
+foreground = "#302834"
+background = "#f8cf91"
+
+[colors.hints.start]
+foreground = "#d2a0c6"
+background = "#382e3d"
+
+[colors.hints.end]
+foreground = "#997166"
+background = "#382e3d"
+
+[colors.line_indicator]
+foreground = "None"
+background = "None"
+
+[colors.footer_bar]
+foreground = "#f8f8eb"
+background = "#382e3d"
+
+[colors.selection]
+text = "#f8f8eb"
+background = "#6c473d"
+
+[colors.normal]
+black = "#37283e"
+red = "#a7d9e6"
+green = "#a7e39c"
+yellow = "#fdaf05"
+blue = "#e2b1d6"
+magenta = "#e0647e"
+cyan = "#f8cf91"
+white = "#f8f8eb"
+
+[colors.bright]
+black = "#997166"
+red = "#a7d9e6"
+green = "#a7e39c"
+yellow = "#fdaf05"
+blue = "#e2b1d6"
+magenta = "#e0647e"
+cyan = "#f8cf91"
+white = "#f8f8eb"
+
+[colors.dim]
+black = "#997166"
+red = "#a7d9e6"
+green = "#a7e39c"
+yellow = "#fdaf05"
+blue = "#e2b1d6"
+magenta = "#e0647e"
+cyan = "#f8cf91"
+white = "#f8f8eb"
+
