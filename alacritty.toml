@@ -6,3 +6,7 @@ live_config_reload = true
 normal = { family = "Mononoki Nerd Font Mono" }
 size = 16
 offset = { x = 0, y = 10 }
+glyph_offset = { x = 0, y = 5 }
+
+[window]
+option_as_alt = "Both"

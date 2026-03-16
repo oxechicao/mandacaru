@@ -26,7 +26,7 @@ $time\n  \
 palette = "mandacaru"
 
 [palettes.mandacaru]
-overlay = '#37283e'
+overlay = '#382e3d'
 mandacaru = '#d2a0c6'
 sky = '#a7d9e6'
 sand = '#f8cf91'

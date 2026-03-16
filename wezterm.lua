@@ -78,7 +78,7 @@ wezterm.on("gui-startup", resurrect.state_manager.resurrect_on_gui_startup)
 --============================--
 config.send_composed_key_when_left_alt_is_pressed = false
 config.send_composed_key_when_right_alt_is_pressed = false
-config.leader = { key = "a", mods = "CTRL" }
+config.leader = { key = "g", mods = "CTRL" }
 config.keys = {
   -------- Movement between words ---------
   { key = "LeftArrow", mods = "OPT", action = act.SendKey({ key = "b", mods = "ALT" }) },
