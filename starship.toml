@@ -1,11 +1,22 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# [](fg:highlight_med)\
+# [](fg:highlight_med)\
+# [](fg:highlight_med)\
+# [](fg:highlight_med)\
+#
 format = """
+[](fg:highlight_med)\
 $username\
+[󱑽](highlight_med)\
 $directory\
+[󱑽](highlight_med)\
 $git_branch\
+[󱑽](highlight_med)\
 $git_status\
+[](highlight_med)\
 $fill\
+[](fg:highlight_med)\
 $c\
 $elixir\
 $elm\
@@ -19,24 +30,35 @@ $rust\
 $scala\
 $conda\
 $python\
-$time\n  \
+[󱑽](highlight_med)\
+$time\
+[](highlight_med)\
+\n \
 [󱞪](fg:cactus) \
 """
 
 palette = "mandacaru"
 
 [palettes.mandacaru]
-overlay = '#382e3d'
+highlight_med = '#6c473d'
 mandacaru = '#d2a0c6'
 sky = '#a7d9e6'
 sand = '#f8cf91'
-flower = '#b8d4b4'
-land = '#6cbfd5'
+text = '#f8f8eb'
+land = '#fdaf05'
 cactus = '#a7e39c'
+flower = '#e0647e'
+
+[username]
+disabled = false
+format = "[ 󰶵 $user ]($style)"
+show_always = true
+style_root = "bg:highlight_med fg:cactus"
+style_user = "bg:highlight_med fg:cactus"
 
 [directory]
-format = "[](fg:overlay)[ $path ]($style)[](fg:overlay) "
-style = "bg:overlay fg:flower"
+format = "[ $path ]($style)"
+style = "bg:highlight_med fg:text"
 truncation_length = 1
 truncation_symbol = "…/"
 
@@ -46,120 +68,112 @@ Downloads = " "
 Music = " "
 Pictures = " "
 
-[fill]
-style = "fg:overlay"
-symbol = " "
-
 [git_branch]
-format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
-style = "bg:overlay fg:land"
+format = "[ $symbol $branch ]($style)"
+style = "bg:highlight_med fg:land"
 symbol = ""
 
 [git_status]
 disabled = false
-style = "bg:overlay fg:mandacaru"
-format = '[](fg:overlay)([$all_status$ahead_behind]($style))[](fg:overlay) '
-up_to_date = '[ ✓ ](bg:overlay fg:cactus)'
-untracked = '[?\($count\)](bg:overlay fg:sky)'
-stashed = '[\$](bg:overlay fg:cactus)'
-modified = '[!\($count\)](bg:overlay fg:sky)'
-renamed = '[»\($count\)](bg:overlay fg:cactus)'
+style = "bg:highlight_med fg:mandacaru"
+format = '([$all_status$ahead_behind]($style))'
+up_to_date = '[ ✓ ](bg:highlight_med fg:cactus)'
+untracked = '[?\($count\)](bg:highlight_med fg:sky)'
+stashed = '[\$](bg:highlight_med fg:cactus)'
+modified = '[!\($count\)](bg:highlight_med fg:sky)'
+renamed = '[»\($count\)](bg:highlight_med fg:cactus)'
 deleted = '[✘\($count\)](style)'
-staged = '[++\($count\)](bg:overlay fg:sky)'
-ahead = '[⇡\(${count}\)](bg:overlay fg:land)'
-diverged = '⇕[\[](bg:overlay fg:cactus)[⇡\(${ahead_count}\)](bg:overlay fg:land)[⇣\(${behind_count}\)](bg:overlay fg:sand)[\]](bg:overlay fg:cactus)'
-behind = '[⇣\(${count}\)](bg:overlay fg:sand)'
+staged = '[++\($count\)](bg:highlight_med fg:sky)'
+ahead = '[⇡\(${count}\)](bg:highlight_med fg:land)'
+diverged = '⇕[\[](bg:highlight_med fg:cactus)[⇡\(${ahead_count}\)](bg:highlight_med fg:land)[⇣\(${behind_count}\)](bg:highlight_med fg:sand)[\]](bg:highlight_med fg:cactus)'
+behind = '[⇣\(${count}\)](bg:highlight_med fg:sand)'
 
 [time]
 disabled = false
-format = " [](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)"
-style = "bg:overlay fg:sand"
+format = "[ $time 󰴈 ]($style)"
+style = "bg:highlight_med fg:sand"
 time_format = "%I:%M%P"
 use_12hr = false
-
-[username]
-disabled = false
-format = "[](fg:overlay)[ 󰶵 $user ]($style)[](fg:overlay) "
-show_always = true
-style_root = "bg:overlay fg:cactus"
-style_user = "bg:overlay fg:cactus"
 
 # Languages
 
 [c]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$version ]($style)"
 disabled = false
 symbol = " "
 
 [elixir]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$version ]($style)"
 disabled = false
 symbol = " "
 
 [elm]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$version ]($style)"
 disabled = false
 symbol = " "
 
 [golang]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$version ]($style)"
 disabled = false
 symbol = " "
 
 [haskell]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$version ]($style)"
 disabled = false
 symbol = " "
 
 [java]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$version ]($style)"
 disabled = false
 symbol = " "
 
 [julia]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$version ]($style)"
 disabled = false
 symbol = " "
 
 [nodejs]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$version ]($style)"
 disabled = false
 symbol = "󰎙 "
 
 [nim]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$version ]($style)"
 disabled = false
 symbol = "󰆥 "
 
 [rust]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = " [ $symbol$version ]($style)"
 disabled = false
 symbol = " "
 
 [scala]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$version ]($style)"
 disabled = false
 symbol = " "
 
 [python]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$version ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$version ]($style)"
 disabled = false
 symbol = ' '
 
 [conda]
-style = "bg:overlay fg:flower"
-format = " [](fg:overlay)[ $symbol$environment ]($style)[](fg:overlay)"
+style = "bg:highlight_med fg:flower"
+format = "[ $symbol$environment ]($style)"
 disabled = false
 symbol = '🅒 '
+[fill]
+style = "fg:highlight_med"
+symbol = "󰼮󰼮󱑽󱑽󰼮󰥛󰥛󰥛󱑽󰼮󰥛󰼮󱑽󱑽󱑽󰥛󱑽󰼮󰼮"
