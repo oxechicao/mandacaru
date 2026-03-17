@@ -30,11 +30,11 @@ config.enable_tab_bar = true
 config.tab_bar_at_bottom = true
 -------- Font --------
 config.freetype_load_flags = "NO_HINTING"
-config.font_size = 16
-config.line_height = 1.3
+config.font_size = 15
+config.line_height = 1
 config.font = wezterm.font_with_fallback({
-  { family = "Mononoki Nerd Font Mono", weight = "Regular" },
   { family = "OpenDyslexicM Nerd Font Mono", weight = "Regular" },
+  { family = "Mononoki Nerd Font Mono", weight = "Regular" },
   { family = "Monoid Nerd Font Mono", weight = "Regular" },
   { family = "MartianMono Nerd Font Mono", weight = "Regular", stretch = "Condensed" },
 })

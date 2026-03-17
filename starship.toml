@@ -92,7 +92,7 @@ behind = '[⇣\(${count}\)](bg:highlight_med fg:sand)'
 disabled = false
 format = "[ $time 󰴈 ]($style)"
 style = "bg:highlight_med fg:sand"
-time_format = "%I:%M%P"
+time_format = "%I:%M"
 use_12hr = false
 
 # Languages
