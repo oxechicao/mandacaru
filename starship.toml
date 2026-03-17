@@ -76,8 +76,8 @@ symbol = ""
 [git_status]
 disabled = false
 style = "bg:highlight_med fg:mandacaru"
-format = '([$all_status$ahead_behind]($style))'
-up_to_date = '[ ✓ ](bg:highlight_med fg:cactus)'
+format = '([ $all_status$ahead_behind ]($style))'
+up_to_date = '[ ✓](bg:highlight_med fg:cactus)'
 untracked = '[?\($count\)](bg:highlight_med fg:sky)'
 stashed = '[\$](bg:highlight_med fg:cactus)'
 modified = '[!\($count\)](bg:highlight_med fg:sky)'
