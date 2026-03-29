@@ -7,7 +7,7 @@
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 
-apps=(chrome brave wezterm nvim intellij idea)
+apps=(chrome brave alacritty tmux wezterm nvim intellij idea)
 
 ############################
 # Reload settings
