@@ -3,8 +3,8 @@ import = ["mandacaru.toml"]
 live_config_reload = true
 
 [font]
-normal = { family = "Mononoki Nerd Font Mono" }
-size = 16
+normal = { family = "RecMonoCasual Nerd Font Mono" }
+size = 15
 
 [font.offset]
 y = 2

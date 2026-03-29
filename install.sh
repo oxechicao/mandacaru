@@ -19,8 +19,8 @@ function setup_wez() {
 
 function setup_tmux() {
   echo "Setup Tmux conf"
-  mv $HOME/.temux.conf{,.mandacaru_bkp}
-  ln -s $(pwd)/temux.conf $HOME/.tmux.conf
+  mv $HOME/.tmux.conf{,.mandacaru_bkp}
+  ln -s $(pwd)/tmux.conf $HOME/.tmux.conf
 }
 
 function setup_starship() {
